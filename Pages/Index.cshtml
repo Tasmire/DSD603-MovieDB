@@ -1,0 +1,32 @@
+﻿@page
+@model IndexModel
+@{
+	ViewData["Title"] = "Home page";
+}
+
+<div>
+	<div class="text-center">
+		<h1 class="display-4">Movie Database</h1>
+		<h3>Welcome!</h3>
+	</div>
+
+	<a href="/Movies">View movie list.</a> <br />
+	<a href="/Casts">View cast list.</a>
+	<hr />
+
+	<div class="row">
+		@foreach (var movie in Model.Results)
+		{
+			<div class="col-md-3 mb-4">
+				<div class="card h-100" style="width: 18rem;">
+					<img src="https://image.tmdb.org/t/p/w200/@movie.PosterPath" class="card-img-top" alt="Movie Poster">
+					<div class="card-body">
+						<h5 class="card-title">@movie.Title</h5>
+						<p class="card-text">@movie.Overview</p>
+						<p class="card-text"><strong>Release Date:</strong> @movie.ReleaseDate.ToString("dd-MM-yyyy")</p>
+					</div>
+				</div>
+			</div>
+		}
+	</div>
+</div>

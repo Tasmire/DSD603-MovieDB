@@ -1,0 +1,72 @@
+﻿@page
+@model DSD603_MovieDB.Pages.Movies.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+<div>
+    <h4>Movie</h4>
+    <hr />
+    <img src="@Model.PosterPath" alt="Movie Poster" class="mb-3" style="float:left" />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.Title)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Title)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.ReleaseDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.ReleaseDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.Overview)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Overview)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.Genre)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Genre)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Movie.Price)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Movie.Price)
+        </dd>
+    </dl>
+</div>
+<div style="clear: both;"></div>
+<div>
+    <h4>Cast</h4>
+    <hr />
+    <dl class="row">
+        @if (Model.CastList != null && Model.CastList.Any())
+        {
+            foreach (var cast in Model.CastList)
+            {
+                <dt class="col-sm-2">
+                    @cast.FirstName @cast.LastName
+                </dt>
+                <dd class="col-sm-10">
+                    @cast.ScreenName
+                </dd>
+            }
+        }
+        else
+        {
+            <dd class="col-sm-12">No cast members found for this movie.</dd>
+        }
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Movie.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
