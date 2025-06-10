@@ -1,0 +1,2 @@
+﻿On the homepage of this program, the first page of top rated movies are displayed, with their posters and details. If you follow the links at the top of the page, you can view the lists of the movies and casts that have been entered into the database. On these pages, you can also create, edit, delete and view entries.
+There is a short video included in this project folder showcasing the functionality of the program.
